@@ -62,9 +62,11 @@ public class SameJSONAsTest {
 	@Test
 	public void appendsFieldMismatchToMismatchDescription() throws JSONException {
 		SameJSONAs<JSONArray> matcher = new SameJSONAs<JSONArray>(expected, modalComparatorFor(jsonArrayComparison()));
-		assertThat(mismatchDescriptionFor(actual, matcher), both(
-				containsString("13")).and(containsString("42")).and(containsString("85")).and(containsString("63")));
-	}
+		assertThat(mismatchDescriptionFor(actual, matcher), containsString("13"));
+		assertThat(mismatchDescriptionFor(actual, matcher), containsString("42"));
+		assertThat(mismatchDescriptionFor(actual, matcher), containsString("85"));
+		assertThat(mismatchDescriptionFor(actual, matcher), containsString("63"));
+  }
 
 	@Test
 	public void appendsMissingKeyToMismatchDescription() throws JSONException {
@@ -98,7 +100,8 @@ public class SameJSONAsTest {
 		SameJSONAs<JSONArray> matcher = new SameJSONAs<JSONArray>(expected, jsonComparator);
 		matcher.matches(actual);
 		matcher.describeMismatch(actual, mismatchDescription);
-		assertThat(mismatchDescription, both(containsString(EXCEPTION_MESSAGE)).and(containsString(SameJSONAs.class.getName())));
+		assertThat(mismatchDescription, containsString(EXCEPTION_MESSAGE));
+		assertThat(mismatchDescription, containsString(SameJSONAs.class.getName()));
 	}
 
 	@Test
