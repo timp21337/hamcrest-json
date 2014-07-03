@@ -7,7 +7,7 @@
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>hamcrest-json</artifactId>
-	<version>0.3-SNAPSHOT</version>
+	<version>0.3-FUTURE-1</version>
 	<packaging>jar</packaging>
 	
 	<prerequisites>
@@ -67,4 +67,16 @@
 			<url>scp://pepperfish.net/home/jshaw/websites/datumedge.co.uk/www/html/hamcrest-json</url>
 		</site>
 	</distributionManagement>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>3.3</version>
+        <configuration>
+          <locales>en,fr</locales>
+	</configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>

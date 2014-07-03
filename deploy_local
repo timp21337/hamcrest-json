@@ -1,0 +1,6 @@
+mvn -e clean 
+mvn -e install 
+
+mvn -e deploy \
+  -DaltDeploymentRepository=matton.libs.release.local::default::http://localhost:8080/artifactory/libs-release-local 
+

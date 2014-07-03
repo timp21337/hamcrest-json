@@ -1,0 +1,6 @@
+mvn -e clean 
+mvn -e install 
+
+mvn -e deploy \
+  -DaltDeploymentRepository=aristaeus.libs.release.local::default::http://aristaeus.mediagraft.com:8080/libs-release-local 
+
