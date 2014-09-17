@@ -119,7 +119,7 @@ public final class SameJSONAs<T> extends TypeSafeDiagnosingMatcher<T> {
 		return captor.getCaptured();
 	}
 
-	JSONMungingCaptor<T> captorFor(Class clazz, Map<String, Object> captured) {
+	JSONMungingCaptor<T> createCaptor(Map<String, Object> captured) {
 		if (expected instanceof JSONObject) {
 			return (JSONMungingCaptor<T>) jsonObjectMungingCaptor(captured);
 		} else if (expected instanceof JSONArray) {
@@ -144,7 +144,7 @@ public final class SameJSONAs<T> extends TypeSafeDiagnosingMatcher<T> {
 	 * @return this matcher enabled
 	 */
 	public SameJSONAs<T> capturingTo(final Map<String, Object> captured) {
-		captor = captorFor(expected.getClass(), captured);
+		captor = createCaptor(captured);
 		return this;
 	}
 
